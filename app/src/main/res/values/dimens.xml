@@ -3,4 +3,5 @@
     <dimen name="img_menu">50dp</dimen>
     <dimen name="img_recommendation_width">100dp</dimen>
     <dimen name="img_recommendation_height">180dp</dimen>
+    <dimen name="appbar_height">56dp</dimen>
 </resources>
