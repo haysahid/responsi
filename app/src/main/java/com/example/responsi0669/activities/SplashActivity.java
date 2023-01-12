@@ -21,21 +21,31 @@ public class SplashActivity extends AppCompatActivity {
 
         preferencesHelper = PreferencesHelper.getInstance(getApplicationContext());
 
-        int splashInterval = 3000;
+        if (!preferencesHelper.isLogin()) {
+            Intent homeIntent = new Intent(SplashActivity.this, LoginActivity.class);
+            homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK );
+            startActivity(homeIntent);
+        } else {
+            Intent loginIntent = new Intent(SplashActivity.this, HomeActivity.class);
+            loginIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK );
+            startActivity(loginIntent);
+        }
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (!preferencesHelper.isLogin()) {
-                    Intent homeIntent = new Intent(SplashActivity.this, LoginActivity.class);
-                    homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK );
-                    startActivity(homeIntent);
-                } else {
-                    Intent loginIntent = new Intent(SplashActivity.this, HomeActivity.class);
-                    loginIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK );
-                    startActivity(loginIntent);
-                }
-            }
-        }, splashInterval);
+//        int splashInterval = 3000;
+//
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                if (!preferencesHelper.isLogin()) {
+//                    Intent homeIntent = new Intent(SplashActivity.this, LoginActivity.class);
+//                    homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK );
+//                    startActivity(homeIntent);
+//                } else {
+//                    Intent loginIntent = new Intent(SplashActivity.this, HomeActivity.class);
+//                    loginIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK );
+//                    startActivity(loginIntent);
+//                }
+//            }
+//        }, splashInterval);
     }
 }

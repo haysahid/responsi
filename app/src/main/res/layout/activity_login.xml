@@ -10,10 +10,10 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginHorizontal="30dp"
         android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:gravity="center">
 
 
         <ImageView
@@ -21,7 +21,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginBottom="40dp"
-            app:srcCompat="@drawable/user" />
+            app:srcCompat="@drawable/img_user" />
 
         <EditText
             android:id="@+id/etEmail"
@@ -39,9 +39,8 @@
 
         <Button
             android:id="@+id/btnLogin"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:minWidth="200dp"
             android:layout_marginTop="40dp"
             android:text="Log In" />
 
@@ -61,7 +60,8 @@
                 android:id="@+id/tvRecovery"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
+                android:textColor="@color/purple_700"
+                android:layout_marginLeft="4dp"
                 android:text="Click Here" />
 
         </LinearLayout>
@@ -82,7 +82,8 @@
                 android:id="@+id/tvRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
+                android:textColor="@color/purple_700"
+                android:layout_marginLeft="4dp"
                 android:text="Register Here" />
 
         </LinearLayout>

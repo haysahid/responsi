@@ -26,13 +26,18 @@ public class PreferencesHelper {
 
     // Login
     public void setLogin(Boolean isLogin, String email, String password) {
-        sharedPreferences.edit().putBoolean("isLogin", false).apply();
+        sharedPreferences.edit().putBoolean("isLogin", isLogin).apply();
         sharedPreferences.edit().putString("email", email).apply();
         sharedPreferences.edit().putString("password", password).apply();
     }
 
     public Boolean isLogin() {
         return sharedPreferences.getBoolean("isLogin", false);
+    }
+
+    // Clear
+    public void logout() {
+        sharedPreferences.edit().clear().apply();
     }
 
 }
