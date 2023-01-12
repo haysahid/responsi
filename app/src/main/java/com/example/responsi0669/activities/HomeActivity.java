@@ -1,18 +1,13 @@
 package com.example.responsi0669.activities;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.menu.MenuView;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import com.example.responsi0669.R;
@@ -21,7 +16,6 @@ import com.example.responsi0669.fragments.HomeFragment;
 import com.example.responsi0669.fragments.PaymentFragment;
 import com.example.responsi0669.fragments.SettingFragment;
 import com.example.responsi0669.utils.PreferencesHelper;
-import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
@@ -40,22 +34,16 @@ public class HomeActivity extends AppCompatActivity {
         context = getApplicationContext();
         preferencesHelper = PreferencesHelper.getInstance(context);
 
+        // Cek status login
         if (!preferencesHelper.isLogin()) {
             Intent intent = new Intent(context, LoginActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK );
             startActivity(intent);
         }
 
-        // Fragment
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .setReorderingAllowed(true)
-                    .add(R.id.fcvHome, HomeFragment.class, null)
-                    .commit();
-        }
+        loadFragment(new HomeFragment());
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigation);
-//        bottomNavigationView.getMenu().findItem(R.id.action_home).setChecked(true);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

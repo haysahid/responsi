@@ -20,7 +20,7 @@
         android:paddingTop="4dp"
         android:paddingBottom="6dp"
         android:paddingHorizontal="20dp"
-        android:layout_gravity="start"
+        app:labelVisibilityMode="labeled"
         app:menu="@menu/nav_items"/>
 
 </LinearLayout>
